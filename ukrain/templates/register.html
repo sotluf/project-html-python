@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="uk">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Реєстрація</title>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        background-color: #f2f2f2;
+      }
+
+      h1 {
+        text-align: center;
+      }
+
+      form {
+        max-width: 300px;
+        margin: auto;
+        background-color: #ffffff;
+        padding: 20px;
+        border-radius: 5px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+      }
+
+      label {
+        display: block;
+        margin-bottom: 10px;
+      }
+
+      input[type="text"],
+      input[type="password"] {
+        width: 93%;
+        padding: 10px;
+        margin: 0 0 5px 0;
+        border-radius: 5px;
+        border: 1px solid #ccc;
+      }
+
+      input[type="submit"] {
+        width: 100%;
+        padding: 10px;
+        border-radius: 5px;
+        border: none;
+        background-color: #4caf50;
+        color: #ffffff;
+        cursor: pointer;
+      }
+
+      input[type="submit"]:hover {
+        background-color: #45a049;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Реєстрація</h1>
+    <form method="POST">
+      {% csrf_token %}
+      <label for="{{ form.username.id_for_label }}">Логін:</label>
+      {{ form.username }}
+
+      <label for="{{ form.password1.id_for_label }}">Пароль:</label>
+      {{ form.password1 }}
+
+      <label for="{{ form.password2.id_for_label }}">Повторіть пароль:</label>
+      {{ form.password2 }}
+
+      <input type="submit" value="Зареєструватися" />
+    </form>
+  </body>
+</html>
